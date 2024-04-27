@@ -83,4 +83,4 @@ myTable.setItem('firstName', 'john');
 myTable.setItem('lastName', 'connor');
 myTable.setItem('firstName', 'sarah');
 myTable.setItem('lastName', 'hello');
-console.log(myTable.getItem('lastName'));
+console.log(myTable.getItem('firstName'));
