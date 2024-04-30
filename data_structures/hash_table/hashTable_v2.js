@@ -19,9 +19,9 @@ function hashStringToInt(s, tableSize) {
 
 // create a class which will represent an individual Node in the Linked List
 class ListNode {
-    constructor(value) {
+    constructor(value, next = null) {
         this.value = value;
-        this.next = null
+        this.next = next
     }
 }
 
