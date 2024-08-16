@@ -101,6 +101,26 @@ class Matrix {
         // STEP 3: Assign the new matrix to this.matrix
         this.matrix = newMatrix;
     }
+
+    // ADD A COLUMN
+    addColumn() {
+        // STEP 1: Create a new Matrix that will now have a new column
+        const newMatrix = new Array(this.matrix.length).fill(null).map(() => new Array(this.matrix[0].length + 1).fill(null));
+
+        // STEP 2: Fill the new matrix will everything that is in the current matrix and then add a new random number in the last (new) column
+        for (let i = 0; i < newMatrix.length; i++) {
+            for (let j = 0; j < newMatrix[i].length; j++) {
+                // CHECK IF WE ARE AT THE LAST ROW IN THE COLUMN
+                if (j === newMatrix[i].length - 1) {
+                    newMatrix[i][j] = Math.floor(Math.random() * 10);
+                } else {
+                    newMatrix[i][j] = this.matrix[i][j];
+                }
+            }
+        }
+        // STEP 3: Assign the new matrix to this.matrix
+        this.matrix = newMatrix;
+    }
 }
 
 module.exports = Matrix;

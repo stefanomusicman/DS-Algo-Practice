@@ -10,3 +10,6 @@ console.log(matrix.printMatrix());
 console.log('------- MATRIX WITH NEW ROW REMOVED ------');
 matrix.removeRow();
 console.log(matrix.printMatrix());
+console.log('------- MATRIX WITH NEW COLUMN ------');
+matrix.addColumn();
+console.log(matrix.printMatrix());
