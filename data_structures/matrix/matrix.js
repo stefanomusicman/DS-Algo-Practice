@@ -39,8 +39,32 @@ Basic Matrix opertaions
 
 in the class below, we must create methods to perform each of the actions
 
+*** DO NOT USE ANY BUILT-IN METHODS (SORT)
+
 */
 
 class Matrix {
+    constructor(rows, columns) {
+        this.matrix = new Array(rows).fill(null).map(() => new Array(columns).fill(Math.floor(Math.random() * 10)));
+    }
 
+    // METHOD TO PRINT THE MATRIX
+    printMatrix() {
+        let printedMatrix = '';
+
+        for (let i = 0; i < this.matrix.length; i++) {
+            for (let j = 0; j < this.matrix[i].length; j++) {
+                printedMatrix += this.matrix[i][j];
+                if (j === this.matrix[i].length - 1) {
+                    printedMatrix += '\n';
+                } else {
+                    printedMatrix += ' '; // Optional: Add space between elements
+                }
+            }
+        }
+
+        return printedMatrix;
+    }
 }
+
+module.exports = Matrix;
