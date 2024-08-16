@@ -16,3 +16,6 @@ console.log(matrix.printMatrix());
 console.log('------- MATRIX WITH NEW COLUMN REMOVED ------');
 matrix.removeColumn();
 console.log(matrix.printMatrix());
+console.log('------- MATRIX WITH FIRST COL SORTED ------');
+matrix.sortColumn(1);
+console.log(matrix.printMatrix());

@@ -136,6 +136,39 @@ class Matrix {
         // STEP 3: Assign the new matrix to this.matrix
         this.matrix = newMatrix;
     }
+
+    // SORT A COLUMN
+    // **** METHOD WILL ACCEPT AN ARGUMENT, IT WILL BE THE COLUMN NUMBER **NOT** THE COLUMN INDEX
+    // EX: IF YOU PASS IN 1, MEANING SORT THE FIRST COLUMN, THE FIRST COLUMN WILL BE AT INDEX 0
+    sortColumn(colNumber) {
+        const indexOfColumn = colNumber - 1;
+
+        // STEP 1: Iterate over the rows and get the number at the given column and add it to the array
+        const nums = [];
+
+        for (let i = 0; i < this.matrix.length; i++) {
+            nums.push(this.matrix[i][indexOfColumn]);
+        }
+
+        // STEP 2: Sort the numbers in the nums array
+        // TO SORT, WITHOUT USING THE BUILT sort() ARRAY METHOD, WE CAN USE A SIMPLE BUBBLE SORT ALGORITHM
+        for (let i = 0; i < nums.length; i++) {
+            for (let j = i + 1; j < nums.length; j++) {
+                let firstNum = nums[i];
+                let secondNum = nums[j];
+
+                if (firstNum > secondNum) {
+                    nums[i] = secondNum;
+                    nums[j] = firstNum;
+                }
+            }
+        }
+
+        // STEP 3: Now that the numbers have been sorted, we need to insert them back into the matrix, in order
+        for (let i = 0; i < this.matrix.length; i++) {
+            this.matrix[i][indexOfColumn] = nums[i];
+        }
+    }
 }
 
 module.exports = Matrix;
