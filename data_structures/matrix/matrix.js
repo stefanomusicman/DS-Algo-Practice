@@ -121,6 +121,21 @@ class Matrix {
         // STEP 3: Assign the new matrix to this.matrix
         this.matrix = newMatrix;
     }
+
+    // REMOVE COLUMN
+    removeColumn() {
+        // STEP 1: Create a new matrix that will not include the last column
+        const newMatrix = new Array(this.matrix.length).fill(null).map(() => new Array(this.matrix[0].length - 1).fill(null));
+
+        // STEP 2: Fill the new matrix with everything that is in the current matrix not including the last column
+        for (let i = 0; i < newMatrix.length; i++) {
+            for (let j = 0; j < newMatrix[i].length; j++) {
+                newMatrix[i][j] = this.matrix[i][j];
+            }
+        }
+        // STEP 3: Assign the new matrix to this.matrix
+        this.matrix = newMatrix;
+    }
 }
 
 module.exports = Matrix;

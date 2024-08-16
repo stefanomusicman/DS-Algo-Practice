@@ -13,3 +13,6 @@ console.log(matrix.printMatrix());
 console.log('------- MATRIX WITH NEW COLUMN ------');
 matrix.addColumn();
 console.log(matrix.printMatrix());
+console.log('------- MATRIX WITH NEW COLUMN REMOVED ------');
+matrix.removeColumn();
+console.log(matrix.printMatrix());
