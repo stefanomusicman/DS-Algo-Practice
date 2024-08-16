@@ -31,6 +31,7 @@ to iterate over the columns
 Basic Matrix opertaions
 
 - create a new Matrix
+- Print the Matrix
 - Add a Row
 - Remove a Row
 - Add a Column
@@ -45,7 +46,7 @@ in the class below, we must create methods to perform each of the actions
 
 class Matrix {
     constructor(rows, columns) {
-        this.matrix = new Array(rows).fill(null).map(() => new Array(columns).fill(Math.floor(Math.random() * 10)));
+        this.matrix = new Array(rows).fill(null).map(() => new Array(columns).fill(null).map(() => Math.floor(Math.random() * 10)));
     }
 
     // METHOD TO PRINT THE MATRIX
@@ -64,6 +65,26 @@ class Matrix {
         }
 
         return printedMatrix;
+    }
+
+    // METHOD TO ADD A ROW
+    addRow() {
+        // STEP 1: Create a new matrix that will copy everything from the existing matrix
+        const newMatrix = new Array(this.matrix.length + 1).fill(null).map(() => new Array(this.matrix[0].length).fill(null));
+
+        // STEP 2: Fill the new Matrix with the information from the old matrix and populate the new Row
+        for (let i = 0; i < newMatrix.length; i++) {
+            for (let j = 0; j < newMatrix[i].length; j++) {
+                // CHECK IF WE'VE ARRIVED AT THE NEW ROW
+                if (i === newMatrix.length - 1) {
+                    newMatrix[i][j] = 0;
+                } else {
+                    newMatrix[i][j] = this.matrix[i][j];
+                }
+            }
+        }
+
+        this.matrix = newMatrix;
     }
 }
 
